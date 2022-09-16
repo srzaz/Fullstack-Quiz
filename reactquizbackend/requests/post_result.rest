@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/results
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0ZXZlIiwiaWQiOiI2MzEyODMyMmY2NDExYjhmOWYyYTIyOGUiLCJpYXQiOjE2NjIyMTUxNTF9.ivwi5bZzoWB1VqFkY6yNu-RfatQvf4l0ScCZwI-03Uk
+
+{
+    "score": 7,
+    "time": 38
+}
