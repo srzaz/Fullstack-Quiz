@@ -13,14 +13,10 @@ const Menu = () => {
 		<AppBar
 			position='static'
 			sx={{
-				backgroundColor: 'black',
-				opacity: 0.9,
-				backgroundImage: 'linear-gradient(-25deg, #b1ffbc, #ec87c0, black)',
 				display: 'flex',
 				justifyContent: 'center',
 				boxShadow: 20,
-				border: 3,
-				borderColor: 'black',
+				backgroundColor: 'rgba(0, 0, 0,0.5)',
 			}}
 		>
 			<Container

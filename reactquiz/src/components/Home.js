@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Notification from './Notification';
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import userService from '../services/user';
 import quizService from '../services/quiz';
 import loginService from '../services/login';
@@ -210,48 +212,36 @@ const Home = () => {
 				<div>
 					<Menu />
 					<div className='app'>
-						<Container
-							sx={{
-								justifyContent: 'center',
-								display: 'flex',
-								alignItems: 'center',
-							}}
-						>
-							<Stack>
-								<Typography
-									variant='h2'
+						<Box sx={{ width: 750, padding: '10px', margin: '10px' }}>
+							<Card
+								sx={{
+									marginTop: '10px',
+									boxShadow: 2,
+									border: 3,
+									borderColor: 'black',
+									padding: '10px',
+								}}
+							>
+								<Container
 									sx={{
-										ml: 5,
-										fontWeight: 'bold',
-										color: 'white',
+										justifyContent: 'center',
+										display: 'flex',
+										alignItems: 'center',
 									}}
 								>
-									Welcome to 10 Questions, {user.name}
-									<Button
-										variant='contained'
-										sx={{
-											mb: 1,
-											ml: 2,
-											bgcolor: 'black',
-											':hover': {
-												bgcolor: '#ec87c0',
-												color: 'black',
-											},
-										}}
-										onClick={handleLogout}
-									>
-										logout
-									</Button>
-								</Typography>
-
-								<div>
-									<Typography variant='h4' color='white'>
-										10 random questions pulled from opendtb.com. Uses React and
-										Material UI for frontend. Nodejs and Mongoose for backend.
-									</Typography>
-								</div>
-							</Stack>
-						</Container>
+									<Stack>
+										<div>
+											<Typography variant='h2' sx={{ fontSize: '2.125rem' }}>
+												Welcome to 10 Questions, {user.name}. 10 random
+												questions pulled from opendtb.com. Uses React and
+												Material UI for frontend. Nodejs and Mongoose for
+												backend.
+											</Typography>
+										</div>
+									</Stack>
+								</Container>
+							</Card>
+						</Box>
 					</div>
 				</div>
 			)}

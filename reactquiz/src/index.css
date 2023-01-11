@@ -1,9 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 input[radio] {
 	padding: 0.5em;
 }
-
-							
-
 
 body {
 	margin: 0;
@@ -16,7 +17,6 @@ body {
 	color: rgba(255, 255, 255, 0.5);
 	background-color: #000000;
 	min-height: 100vh;
-	
 }
 
 .app {
@@ -26,11 +26,4 @@ body {
 
 * {
 	font-family: 'Verdana', cursive, sans-serif;
-
 }
-
-
-
-
-
-
