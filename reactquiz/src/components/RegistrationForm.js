@@ -16,9 +16,6 @@ const RegistrationForm = ({
 	username,
 	password,
 }) => {
-	
-
-
 	return (
 		<div>
 			<Container sx={{ justifyContent: 'center', display: 'flex' }}>
@@ -34,7 +31,7 @@ const RegistrationForm = ({
 					<Typography
 						component='h2'
 						variant='h5'
-						color='white'
+						color='black'
 						textAlign='center'
 					>
 						Register

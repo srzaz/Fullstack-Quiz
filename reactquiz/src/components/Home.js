@@ -4,6 +4,7 @@ import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import userService from '../services/user';
 import quizService from '../services/quiz';
 import loginService from '../services/login';
@@ -13,6 +14,7 @@ import Container from '@mui/material/Container';
 import Menu from './Menu';
 import { useNavigate } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
+import { createTheme } from '@mui/material/styles';
 
 const Home = () => {
 	const [message, setMessage] = useState(null);
@@ -97,8 +99,6 @@ const Home = () => {
 	};
 
 	const handleLogout = async (event) => {
-		event.preventDefault();
-
 		try {
 			window.sessionStorage.clear();
 			quizService.setToken(null);
@@ -127,85 +127,118 @@ const Home = () => {
 			{user === null ? (
 				register === false ? (
 					<div>
-						<Container
-							sx={{
-								justifyContent: 'center',
-								display: 'flex',
-								alignItems: 'center',
-							}}
+						<Grid
+							container
+							spacing={0}
+							direction='column'
+							alignItems='center'
+							justifyContent='center'
+							style={{ minHeight: '90vh' }}
 						>
-							<Stack>
-								<LoginForm
-									username={username}
-									password={password}
-									handleUsernameChange={({ target }) =>
-										setUsername(target.value)
-									}
-									handlePasswordChange={({ target }) =>
-										setPassword(target.value)
-									}
-									handleLogin={handleLogin}
-								/>
+							<Grid item xs={3}>
+								<Card>
+									<Container
+										sx={{
+											justifyContent: 'center',
+											display: 'flex',
+											alignItems: 'center',
+											margin: '10px',
+										}}
+									>
+										<Stack>
+											<LoginForm
+												username={username}
+												password={password}
+												handleUsernameChange={({ target }) =>
+													setUsername(target.value)
+												}
+												handlePasswordChange={({ target }) =>
+													setPassword(target.value)
+												}
+												handleLogin={handleLogin}
+											/>
 
-								<Button
-									variant='contained'
-									onClick={() => {
-										setRegister(true);
-										setUsername('');
-										setPassword('');
-									}}
-									sx={{
-										mb: 1,
-										bgcolor: 'black',
-										':hover': {
-											bgcolor: '#ec87c0', // theme.palette.primary.main
-											color: 'black',
-										},
-									}}
-								>
-									register
-								</Button>
-							</Stack>
-						</Container>
+											<Button
+												variant='contained'
+												onClick={() => {
+													setRegister(true);
+													setUsername('');
+													setPassword('');
+												}}
+												sx={{
+													mb: 1,
+													bgcolor: 'black',
+													':hover': {
+														bgcolor: '#ec87c0', // theme.palette.primary.main
+														color: 'black',
+													},
+												}}
+											>
+												register
+											</Button>
+										</Stack>
+									</Container>
+								</Card>
+							</Grid>
+						</Grid>
 					</div>
 				) : (
 					<div>
-						<Container sx={{ justifyContent: 'center', display: 'flex' }}>
-							<Stack>
-								<RegistrationForm
-									username={username}
-									password={password}
-									name={name}
-									handleUsernameChange={({ target }) =>
-										setUsername(target.value)
-									}
-									handlePasswordChange={({ target }) =>
-										setPassword(target.value)
-									}
-									handleNameChange={({ target }) => setName(target.value)}
-									handleRegistration={handleRegistration}
-								/>
-								<Button
-									variant='contained'
-									sx={{
-										mb: 1,
-										bgcolor: 'black',
-										':hover': {
-											bgcolor: '#ec87c0',
-											color: 'black',
-										},
-									}}
-									onClick={() => {
-										setRegister(false);
-										setUsername('');
-										setPassword('');
-										setName('');
-									}}
-								>
-									cancel
-								</Button>
-							</Stack>
-						</Container>
+						<Grid
+							container
+							spacing={0}
+							direction='column'
+							alignItems='center'
+							justifyContent='center'
+							style={{ minHeight: '90vh' }}
+						>
+							<Grid item xs={3}>
+								<Card>
+									<Container
+										sx={{
+											justifyContent: 'center',
+											display: 'flex',
+											margin: '10px',
+										}}
+									>
+										<Stack>
+											<RegistrationForm
+												username={username}
+												password={password}
+												name={name}
+												handleUsernameChange={({ target }) =>
+													setUsername(target.value)
+												}
+												handlePasswordChange={({ target }) =>
+													setPassword(target.value)
+												}
+												handleNameChange={({ target }) => setName(target.value)}
+												handleRegistration={handleRegistration}
+											/>
+											<Button
+												variant='contained'
+												sx={{
+													mb: 1,
+													bgcolor: 'black',
+													':hover': {
+														bgcolor: '#ec87c0',
+														color: 'black',
+													},
+												}}
+												onClick={() => {
+													setRegister(false);
+													setUsername('');
+													setPassword('');
+													setName('');
+												}}
+											>
+												cancel
+											</Button>
+										</Stack>
+									</Container>
+								</Card>
+							</Grid>
+						</Grid>
 					</div>
 				)
 			) : (
@@ -236,6 +269,20 @@ const Home = () => {
 												questions pulled from opendtb.com. Uses React and
 												Material UI for frontend. Nodejs and Mongoose for
 												backend.
+												<Button
+													variant='contained'
+													sx={{
+														mb: 1,
+														bgcolor: 'black',
+														':hover': {
+															bgcolor: '#ec87c0',
+															color: 'black',
+														},
+													}}
+													onClick={handleLogout}
+												>
+													Logout
+												</Button>
 											</Typography>
 										</div>
 									</Stack>

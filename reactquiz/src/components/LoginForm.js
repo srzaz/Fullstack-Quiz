@@ -16,15 +16,17 @@ const LoginForm = ({
 }) => {
 	return (
 		<div>
-			<Container sx={{ justifyContent: 'center', display: 'flex' }}>
-				<Stack  justifyContent='center' alignItems='center'>
+			<Container
+				sx={{ justifyContent: 'center', display: 'flex', alignItems: 'center' }}
+			>
+				<Stack display='flex' justifyContent='center' alignItems='center'>
 					<Avatar sx={{ m: 1, bgcolor: 'black' }}>
 						<LockOutlinedIcon />
 					</Avatar>
 					<Typography
 						component='h2'
 						variant='h5'
-						color='white'
+						color='black'
 						textAlign='center'
 					>
 						Sign in
